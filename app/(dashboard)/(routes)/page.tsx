@@ -41,7 +41,7 @@ const blogs = await db.course.findMany({
                   Welcome to FcBlog
                 </h1>
                 <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                 A space where you can share your thoughts, stories, and experiences without judgment. Whether you are seeking peace, clarity, or simply a place to express yourself, we are here to support you. Dive into our community of insights, reflections, and resources aimed at helping you navigate life &rsquo s ups and downs. No matter where you are on your journey, this is your safe space to post anything, connect, and grow. Let us stress less, live mindfully, and support each other along the way!
+                 A space where you can share your thoughts, stories, and experiences without judgment. Whether you are seeking peace, clarity, or simply a place to express yourself, we are here to support you. Dive into our community of insights, reflections, and resources aimed at helping you navigate life ups and downs. No matter where you are on your journey, this is your safe space to post anything, connect, and grow. Let us stress less, live mindfully, and support each other along the way!
                 </p>
               </div>
             

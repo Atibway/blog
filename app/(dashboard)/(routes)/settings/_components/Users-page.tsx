@@ -1,11 +1,11 @@
 
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import axios from "axios"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Input } from "@/components/ui/input"
+
 import toast  from "react-hot-toast"
 import { Loader2 } from "lucide-react"
 import { User } from "@prisma/client"

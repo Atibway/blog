@@ -7,7 +7,7 @@ import { Preview } from "@/components/preview"
 import Image from "next/image"
 import { Footer } from "./_components/card-forter"
 import {BlogComments} from "./_components/comment"
-import { currentUser } from "@/lib/auth"
+
 
 export default async function BlogDetails({
     params

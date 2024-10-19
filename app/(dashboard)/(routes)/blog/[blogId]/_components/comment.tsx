@@ -17,7 +17,6 @@ import {
 import axios from "axios"
 import { useRouter } from "next/navigation"
 import toast from "react-hot-toast"
-import { useState } from "react"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Textarea } from "@/components/ui/textarea"
@@ -70,7 +69,7 @@ try {
         <div className="px-4 py-6 sm:px-0">
 
           <div className="mb-8">
-            {comments?.length as any > 0 && (
+            {comments?.length as number > 0 && (
 
             <h2 className="text-2xl font-bold mb-4">
               Comments

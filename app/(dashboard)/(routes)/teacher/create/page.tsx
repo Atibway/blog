@@ -21,7 +21,7 @@ import { useRouter } from "next/navigation"
 import toast from "react-hot-toast"
 import { useCurrentUser } from "@/hooks/use-current-user"
 
-export const CreateCourseSchema = z.object({
+ const CreateCourseSchema = z.object({
   title: z.string().min(1, {
       message: "Title is required"
   }),

@@ -3,6 +3,7 @@ import { Card, CardContent, CardDescription,  CardHeader, CardTitle } from "@/co
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Facebook, Twitter, Instagram, Github } from "lucide-react"
+import Image from "next/image"
 
 export default function AboutPage() {
   return (
@@ -18,7 +19,7 @@ export default function AboutPage() {
             <CardTitle>Our Story</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>Welcome to our blog! We're passionate about sharing knowledge and insights on technology, design, and innovation. Our journey began in 2023 with a simple goal: to create a space where curious minds can learn, grow, and connect.</p>
+            <p>Welcome to our blog! We are passionate about sharing knowledge and insights on technology, design, and innovation. Our journey began in 2024 with a simple goal to create a space where curious minds can learn, grow, and connect.</p>
           </CardContent>
         </Card>
 
@@ -36,16 +37,17 @@ export default function AboutPage() {
             <CardTitle>Meet the Author</CardTitle>
           </CardHeader>
           <CardContent className="flex flex-col md:flex-row gap-6">
-            <img 
+            <Image 
               src="https://utfs.io/f/DsLOkL63obGsflQZSdgb1vXWZzao4BU6ANuVEsPwhM5rFSmn" 
               alt="Author" 
+              fill
               className="rounded-full w-48 h-48 object-cover mx-auto md:mx-0"
             />
             <div>
               <h3 className="text-2xl font-semibold mb-2">Ainebyoona Atidu</h3>
               <p className="text-muted-foreground">
                 Atidu is a tech enthusiast with over a decade of experience in software development and design. 
-                When he's not writing or coding, you can find him exploring At Bishop Barham Uiversity.
+                When he is not writing or coding, you can find him exploring At Bishop Barham Uiversity.
               </p>
             </div>
           </CardContent>
@@ -54,7 +56,7 @@ export default function AboutPage() {
         <Card className="md:col-span-2">
           <CardHeader>
             <CardTitle>Get in Touch</CardTitle>
-            <CardDescription>We'd love to hear from you! Send us a message and we'll get back to you as soon as possible.</CardDescription>
+            <CardDescription>We would love to hear from you! Send us a message and we will get back to you as soon as possible.</CardDescription>
           </CardHeader>
           <CardContent>
             <form className="space-y-4">
