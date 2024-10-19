@@ -1,5 +1,5 @@
 "use client"
-import { CalendarDays, MessageCircle, ThumbsUp, Share2 } from "lucide-react"
+import {ThumbsUp, Share2 } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import {  CardFooter } from "@/components/ui/card"
 

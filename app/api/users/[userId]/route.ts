@@ -11,7 +11,7 @@ export async function PATCH(
 }){
     try {
        const loggedInUser = await currentUser()
-       let UserRole = await currentRole()
+       const UserRole = await currentRole()
        const {role} = await req.json()
 
 

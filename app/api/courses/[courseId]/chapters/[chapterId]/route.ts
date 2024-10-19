@@ -59,7 +59,7 @@ req: Request,
 ){
     try {
         const user = await currentUser();
-    const { isPublished,...values} = await req.json()
+    const { ...values} = await req.json()
         if(!user?.id) {
             return new NextResponse("Unauthorized", {status: 4001})
         }

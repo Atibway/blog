@@ -10,11 +10,9 @@ import {
   FormDescription,
   FormField,
   FormItem,
-  FormLabel,
+
   FormMessage,
 } from "@/components/ui/form"
-import { Input } from "@/components/ui/input"
-
 
 import axios from "axios"
 import { useRouter } from "next/navigation"
@@ -41,9 +39,7 @@ export  function BlogComments({
 comments,
 blogId
 }:BlogCommentsProps) {
-  
-  const [newComment, setNewComment] = useState("")
-
+ 
   const router = useRouter()
 
     const form = useForm<z.infer<typeof CreateCourseSchema>>({
@@ -57,7 +53,7 @@ blogId
 
          const onSubmit = async (values: z.infer< typeof CreateCourseSchema>)=> {
 try {
-  const response = await axios.post(`/api/courses/${blogId}`, values)
+  await axios.post(`/api/courses/${blogId}`, values)
   router.refresh()
   toast.success("Comment sent")
 } catch (error) {

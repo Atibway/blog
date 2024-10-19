@@ -14,7 +14,6 @@ export default async function BlogDetails({
 }:{
     params: {blogId: string}
 }) {
-  const user = await currentUser()
     const blog = await db.course.findFirst({
         where: {
           isPublished: true,

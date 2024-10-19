@@ -35,21 +35,9 @@ return new NextResponse("Unauthorized", {status:401})
         }
       });
       
-      let newPosition = lastChapter ? lastChapter.position + 1 : 1;
+      const newPosition = lastChapter ? lastChapter.position + 1 : 1;
       
-    //   // Check if this position already exists (could happen with concurrent requests)
-    //   while (await db.chapter.findUnique({
-    //     where: {
-    //       courseId_position: {
-    //         courseId: params.courseId,
-    //         position: newPosition,
-    //       },
-    //     },
-    //   })) {
-    //     newPosition++;
-    //   }
-      
-
+   
     const chapter = await db.chapter.create(
         {
             data: {

@@ -66,7 +66,7 @@ try {
   <h1 className="text-2xl">Name your Blog</h1>
 
   <p>
-    What would you like to name your Blog? Don't worry, you change this later
+    What would you like to name your Blog? Don not worry, you change this later
   </p>
 
   <Form
