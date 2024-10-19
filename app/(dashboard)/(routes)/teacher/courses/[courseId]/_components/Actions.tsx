@@ -68,7 +68,7 @@ const onDelete = async ()=> {
         variant={"outline"}
         size={"sm"}
         >
-{!isPublished? "Unpublished" : "Published"}
+{isPublished? "Unpublished" : "Published"}
         </Button>
 <ConfirmModal onConfirm={onDelete}>
 

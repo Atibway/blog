@@ -70,13 +70,11 @@ try {
 return new NextResponse("Unauthorized", {status: 401})
     }
 
+
     const course= await db.course.findUnique({
         where: {
             id: params.courseId,
             userId: user.id
-        },
-        include:{
-            chapter:true
         }
     })
 

@@ -97,8 +97,8 @@ value={chapter.description as string}
               </div>
             </CardContent>
             <Footer
-  url="https://example.com/blog-post-url"
-  title="Amazing Blog Post"
+  url={`https://fcblog-two.vercel.app/blog/${blog?.id}`}
+  title="Blog Post"
   text="Check out this amazing blog post!"
 />
 

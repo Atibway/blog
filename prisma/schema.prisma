@@ -77,9 +77,9 @@ model Account {
    chapter Chapter[]
   categoryId  String?
   Comment Comment[]
-  category  Category? @relation(fields: [categoryId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
 
   @@unique([categoryId])
 }
@@ -91,17 +91,13 @@ model Comment {
    userImage  String?
    userId String 
    courseId String
-   course Course @relation(fields: [courseId], references: [id])
+   course Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
    createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
 }
 
- model Category {
-  id String @id @default(uuid())
-  name String @unique
-  courses Course[]
- }
+
 
  
 
