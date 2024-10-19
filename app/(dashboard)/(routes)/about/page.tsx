@@ -3,7 +3,6 @@ import { Card, CardContent, CardDescription,  CardHeader, CardTitle } from "@/co
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Facebook, Twitter, Instagram, Github } from "lucide-react"
-import Image from "next/image"
 
 export default function AboutPage() {
   return (
@@ -37,10 +36,10 @@ export default function AboutPage() {
             <CardTitle>Meet the Author</CardTitle>
           </CardHeader>
           <CardContent className="flex flex-col md:flex-row gap-6">
-            <Image 
+            <img 
               src="https://utfs.io/f/DsLOkL63obGsflQZSdgb1vXWZzao4BU6ANuVEsPwhM5rFSmn" 
               alt="Author" 
-              fill
+        
               className="rounded-full w-48 h-48 object-cover mx-auto md:mx-0"
             />
             <div>
