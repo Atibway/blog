@@ -43,7 +43,7 @@ const blogs = await db.course.findMany({
                   Welcome to FcBlog
                 </h1>
                 <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                A platform dedicated to showcasing student projects, ideas, and experiences. Explore a diverse range of blogs featuring insights, creative work, and educational journeys. Whether you're looking for inspiration, resources, or simply want to see what students are working on, this is the place to find it. Connect with a community of learners and creators sharing their progress, challenges, and achievements
+                A platform dedicated to showcasing student projects, ideas, and experiences. Explore a diverse range of blogs featuring insights, creative work, and educational journeys. Whether you are looking for inspiration, resources, or simply want to see what students are working on, this is the place to find it. Connect with a community of learners and creators sharing their progress, challenges, and achievements
                 </p>
               </div>
             
