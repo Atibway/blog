@@ -10,4 +10,3 @@ export const currentRole = async ()=> {
 
     return session?.user?.role;
 }
-const book = 99
