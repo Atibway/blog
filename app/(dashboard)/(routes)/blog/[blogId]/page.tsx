@@ -52,9 +52,10 @@ export default async function BlogDetails({
               <CardTitle className="text-2xl font-bold">
                 {blog?.title}
               </CardTitle>
-              <div className="flex items-center space-x-4 text-sm text-gray-500">
-                <div className="flex items-center">
-                  <CalendarDays className="mr-1 h-4 w-4" />
+              <div className="md:flex md:items-center space-x-4 text-sm text-gray-500">
+                <div className="grid grid-cols-1 md:grid-cols-2">
+                  <div className="flex items-center">
+
                   <span> {new Date(blog?.createdAt as Date).toLocaleDateString('en-Us',{
 year: "numeric",
 month: "long",
@@ -62,6 +63,8 @@ day: 'numeric'
                   }
                     
                   )}</span>
+                  </div>
+                  <CalendarDays className="mr-1 h-4 w-4" />
 
 <div className="flex items-center">
 <p className="ml-2 font-bold text-muted-foreground mr-1">Author: </p> 
