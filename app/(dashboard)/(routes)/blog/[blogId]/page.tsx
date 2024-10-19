@@ -7,6 +7,7 @@ import { Preview } from "@/components/preview"
 import Image from "next/image"
 import { Footer } from "./_components/card-forter"
 import {BlogComments} from "./_components/comment"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 
 export default async function BlogDetails({
@@ -44,7 +45,7 @@ export default async function BlogDetails({
   return (
     <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
      
-      <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+      <main className="max-w-7xl mx-auto py-3 sm:px-3 lg:px-8">
         <div className="px-4 py-6 sm:px-0">
           <Card className="mb-8 ">
             <CardHeader>
@@ -61,6 +62,17 @@ day: 'numeric'
                   }
                     
                   )}</span>
+
+<div className="flex items-center">
+<p className="ml-2 font-bold text-muted-foreground mr-1">Author: </p> 
+                   <Avatar className="h-8 w-8 mr-2">
+                     <AvatarImage src={blog?.userImage || ""} />
+                     <AvatarFallback>{blog?.author?.[0]}</AvatarFallback>
+                   </Avatar>
+                   <p className="text-sm font-serif text-muted-foreground ">
+                       {blog?.author}
+                       </p>
+                   </div>
                 </div>
               </div>
             </CardHeader>
@@ -79,14 +91,15 @@ day: 'numeric'
 value={chapter.description as string}
       />
 {chapter.imageUrl && (
-
-                    <div className="relative aspect-video rounded-md overflow-hidden h-52 w-[20rem]">
+<div className="flex justify-center">
+                    <div className="relative aspect-video rounded-md overflow-hidden h-[25rem] w-[25rem]  ">
                         <Image
                         src={chapter?.imageUrl || ""}
                         fill
                         alt="object-cover "
                         />
                       </div>
+</div>
 )}
                   </div>
                     </>

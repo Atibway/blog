@@ -19,6 +19,8 @@ export async function POST(
             data: {
                 userId: user.id ,
                 title,
+                author: user.name as string,
+                userImage: user.image
             }
         }
     )

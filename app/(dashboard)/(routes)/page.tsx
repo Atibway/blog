@@ -13,6 +13,8 @@ import { db } from "@/lib/db"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import Ripple from "@/components/ui/ripple"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { CalendarDays } from "lucide-react"
 
 
 export default async function Component() {
@@ -41,7 +43,7 @@ const blogs = await db.course.findMany({
                   Welcome to FcBlog
                 </h1>
                 <p className="mx-auto max-w-[700px] text-gray-500 md:text-xl dark:text-gray-400">
-                 A space where you can share your thoughts, stories, and experiences without judgment. Whether you are seeking peace, clarity, or simply a place to express yourself, we are here to support you. Dive into our community of insights, reflections, and resources aimed at helping you navigate life ups and downs. No matter where you are on your journey, this is your safe space to post anything, connect, and grow. Let us stress less, live mindfully, and support each other along the way!
+                A platform dedicated to showcasing student projects, ideas, and experiences. Explore a diverse range of blogs featuring insights, creative work, and educational journeys. Whether you're looking for inspiration, resources, or simply want to see what students are working on, this is the place to find it. Connect with a community of learners and creators sharing their progress, challenges, and achievements
                 </p>
               </div>
             
@@ -63,20 +65,42 @@ const blogs = await db.course.findMany({
                     <CardTitle>
                       {blog.title}
                     </CardTitle>
-                    <CardDescription>
-                    {new Date(blog.createdAt).toLocaleDateString('en-Us',{
+                    
+
+                    <div className="flex items-center space-x-4 text-sm text-gray-500">
+                <div className="flex items-center">
+                  <CalendarDays className="mr-1 h-4 w-4 " />
+                  <span> {new Date(blog?.createdAt as Date).toLocaleDateString('en-Us',{
 year: "numeric",
 month: "long",
 day: 'numeric'
                   }
                     
-                  )}
-                    </CardDescription>
-                  </CardHeader>
+                  )}</span>
+
+<div className="flex items-center">
+                     <p className="ml-2 font-bold text-muted-foreground mr-1">Author: </p> 
+                   <Avatar className="h-8 w-8 mr-2">
+                     <AvatarImage src={blog?.userImage || ""} />
+                     <AvatarFallback>{blog?.author?.[0]}</AvatarFallback>
+                   </Avatar>
+                   <p className="text-sm font-serif text-muted-foreground ">
+                       {blog?.author}
+                       </p>
+                   </div>
+                </div>
+              </div>
+                 </CardHeader>
                   <CardContent>
-                    <div className="grid grid-cols-2">
+                    <div className="grid grid-cols-1 gap-2 ">
                       <div>
-                   {blog.description}
+                   {blog?.description?.length as number > 500?(
+                   <>
+                   {blog.description?.substring(0, 500)}...
+                   </>
+                   ):(
+                    blog.description
+                   )}
                       </div>
                       <div className="relative aspect-video rounded-md overflow-hidden">
                         <Image
