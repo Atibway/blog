@@ -54,7 +54,7 @@ const user = useCurrentUser()
 
          const onSubmit = async (values: z.infer< typeof CreateCourseSchema>)=> {
 try {
-  const response = await axios.post(`/api/courses/${blogId}`, values)
+  await axios.post(`/api/courses/${blogId}`, values)
   router.refresh()
   form.reset()
   toast.success("Comment sent")

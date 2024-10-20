@@ -1,5 +1,5 @@
 "use client"
-import {ThumbsUp, Share2 } from "lucide-react"
+import { Share2 } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import {  CardFooter } from "@/components/ui/card"
 

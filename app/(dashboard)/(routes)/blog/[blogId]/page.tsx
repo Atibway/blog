@@ -1,7 +1,6 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
-import { CalendarDays} from "lucide-react"
 import { db } from "@/lib/db"
 import { Preview } from "@/components/preview"
 import Image from "next/image"
