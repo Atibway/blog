@@ -28,10 +28,10 @@ export const Footer = ({ url, title, text }:{
 
   return (
     <CardFooter className="flex justify-between">
-      <Button variant="outline">
+      {/* <Button variant="outline">
         <ThumbsUp className="mr-2 h-4 w-4" />
         Like
-      </Button>
+      </Button> */}
       <Button variant="outline" onClick={handleShare}>
         <Share2 className="mr-2 h-4 w-4" />
         Share

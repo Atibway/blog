@@ -33,7 +33,7 @@ export default function AboutPage() {
 
         <Card className="md:col-span-2">
           <CardHeader>
-            <CardTitle>Meet the Author</CardTitle>
+            <CardTitle>Meet the Creater</CardTitle>
           </CardHeader>
           <CardContent className="flex flex-col md:flex-row gap-6">
             <img 
@@ -46,7 +46,7 @@ export default function AboutPage() {
               <h3 className="text-2xl font-semibold mb-2">Ainebyoona Atidu</h3>
               <p className="text-muted-foreground">
                 Atidu is a tech enthusiast with over a decade of experience in software development and design. 
-                When he is not writing or coding, you can find him exploring At Bishop Barham Uiversity.
+                When he is not writing or coding, you can find him in Coding because Thats what he does nothing else 😂😂
               </p>
             </div>
           </CardContent>

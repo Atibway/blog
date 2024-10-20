@@ -65,34 +65,28 @@ const blogs = await db.course.findMany({
                     <CardTitle>
                       {blog.title}
                     </CardTitle>
-                    
+                 </CardHeader>
 
-                    <div className="md:flex md:items-center space-x-4 text-sm text-gray-500">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                 <CardHeader>
                   <div className="flex items-center">
-                  <CalendarDays className="mr-1 h-4 w-4 " />
-                  <span> {new Date(blog?.createdAt as Date).toLocaleDateString('en-Us',{
+                    <Avatar className="h-8 w-8 mr-2">
+                      <AvatarImage src={blog?.userImage || ""} />
+                      <AvatarFallback>{blog?.author?.[0]}</AvatarFallback>
+                    </Avatar>
+                    <div>
+                      <CardTitle className="text-sm font-semibold">
+                        {blog.author}
+                        </CardTitle>
+                      <p className="text-xs text-gray-500"><span> {new Date(blog?.createdAt as Date).toLocaleDateString('en-Us',{
 year: "numeric",
 month: "long",
 day: 'numeric'
                   }
                     
-                  )}</span>
+                  )}</span></p>
+                    </div>
                   </div>
-
-<div className="flex items-center">
-                     <p className="ml-2 font-bold text-muted-foreground mr-1">Author: </p> 
-                   <Avatar className="h-8 w-8 mr-2">
-                     <AvatarImage src={blog?.userImage || ""} />
-                     <AvatarFallback>{blog?.author?.[0]}</AvatarFallback>
-                   </Avatar>
-                   <p className="text-sm font-serif text-muted-foreground ">
-                       {blog?.author}
-                       </p>
-                   </div>
-                </div>
-              </div>
-                 </CardHeader>
+                </CardHeader>
                   <CardContent>
                     <div className="grid grid-cols-1 gap-2 ">
                       <div>

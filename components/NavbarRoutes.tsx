@@ -35,7 +35,7 @@ const router = useRouter()
 
 const onclick = ()=>{
    signOut()
-   router.push("/") 
+   router.push("/")
    router.refresh()
 }
 
@@ -103,7 +103,7 @@ const onclick = ()=>{
 )}
 <div>
           {user? (
-            
+           
        <Button 
        onClick={onclick}
        variant={"ghost"}>
@@ -114,6 +114,7 @@ const onclick = ()=>{
                     <LogOutIcon className="h-4 w-4 ml-1 mt-1 text-destructive"/>
               </span>
        </Button>
+            
                 
           ):(
             <Link

@@ -16,7 +16,7 @@ import axios from "axios"
 import { useRouter } from "next/navigation"
 import toast from "react-hot-toast"
 import { useState } from "react"
-import { Loader2, PlusCircle } from "lucide-react"
+import { Loader2, PlusCircle, RefreshCcw } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Chapter, Course } from "@prisma/client"
 import { Input } from "@/components/ui/input"
@@ -57,7 +57,8 @@ try {
   await axios.post(`/api/courses/${courseId}/chapters`, values);
   toast.success('Chapter Created');
   toggleCreating()
-  router.refresh()
+   // router.refresh()
+   window.location.reload()
 } catch (error) {
   toast.error("Something went wrong")
 } finally{
@@ -86,6 +87,7 @@ try {
 const onEdit = (id:string)=> {
   router.push(`/teacher/courses/${courseId}/chapters/${id}`)
 }
+
   
   return (
     <div className="relative mt-6 border bg-slate-100 dark:bg-slate-700 rounded-md p-4">
@@ -95,7 +97,11 @@ const onEdit = (id:string)=> {
         </div>
       )}
 <div className="font-medium flex items-center justify-between ">
+
+    <h1>
   Blog chapters
+    </h1>
+
 <Button onClick={toggleCreating} variant={"ghost"}>
   {isCreating ? (
     <>

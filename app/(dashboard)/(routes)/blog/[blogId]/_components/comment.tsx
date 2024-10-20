@@ -22,6 +22,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Textarea } from "@/components/ui/textarea"
 
 import {  Comment} from "@prisma/client"
+import { useCurrentUser } from "@/hooks/use-current-user"
+import { CommentEditForm } from "./commentEditForm"
 
 interface BlogCommentsProps {
   comments:  Comment[] | undefined
@@ -40,7 +42,7 @@ blogId
 }:BlogCommentsProps) {
  
   const router = useRouter()
-
+const user = useCurrentUser()
     const form = useForm<z.infer<typeof CreateCourseSchema>>({
         resolver: zodResolver(CreateCourseSchema),
         defaultValues:{
@@ -52,12 +54,20 @@ blogId
 
          const onSubmit = async (values: z.infer< typeof CreateCourseSchema>)=> {
 try {
-  await axios.post(`/api/courses/${blogId}`, values)
+  const response = await axios.post(`/api/courses/${blogId}`, values)
   router.refresh()
+  form.reset()
   toast.success("Comment sent")
 } catch (error) {
-  toast.error("You cannot comment twice")
-  router.refresh()
+  if(user){
+    router.refresh()
+    toast.error("You can not comment twice on a post")
+    form.reset()
+  }else {
+    toast.error("Log in to comment")
+    router.push("/auth/login")
+    
+  }
 }
 
          }
@@ -98,7 +108,11 @@ day: 'numeric'
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <p>{comment.content}</p>
+                  <CommentEditForm
+                  commentId={comment.id}
+                  initialData={comment}
+                  commentDetails={comment}
+                  />
                 </CardContent>
               </Card>
             ))}
