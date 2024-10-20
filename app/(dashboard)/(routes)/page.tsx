@@ -14,7 +14,6 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import Ripple from "@/components/ui/ripple"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { CalendarDays } from "lucide-react"
 
 
 export default async function Component() {
