@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Lens } from "./lens";
 import {  User } from "@prisma/client";
-import { Button } from "@/components/ui/moving-border";
 import Link from "next/link";
 
 export function UserCard({
@@ -18,9 +17,7 @@ export function UserCard({
     {users.map((user) => (
       <>
       
-        <Link
-        href={`/blog/${user?.id}`}
-        >
+        
         
         <div key={user.id} className="w-full relative rounded-3xl overflow-hidden max-w-md mx-auto bg-gradient-to-r from-[#1D2235] to-[#121318] p-8 my-10">
             <Rays />
@@ -48,15 +45,17 @@ export function UserCard({
                 </motion.div>
             </div>
             <div className="flex justify-center">
-                <Button
-                    borderRadius="1.75rem"
-                    className="dark:bg-slate-900  text-white border-slate-800 w-full text-xl font-mono"
-                >
-                    Visit Blog &rarr;
-                </Button>
+            <Link
+        href={`/blog/${user?.id}`}
+        >
+                <button className="px-[2.9rem] py-4 bg-blue-600 hover:bg-blue-700 transition duration-200 rounded-3xl text-white shadow-[0px_2px_0px_0px_#FFFFFF40_inset]">
+                Visit Blog &rarr;
+          </button>
+               
+        </Link>
             </div>
         </div>
-        </Link>
+        
       </>
     ))}
 </div>

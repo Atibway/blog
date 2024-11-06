@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Vortex } from "./lamp";
-import { Button } from "@/components/ui/moving-border";
+
 import Link from "next/link";
 import { User } from "@prisma/client";
 
@@ -31,15 +31,13 @@ export function HelloSection({
           </button>
           </Link>
           <Link
-          href={`/blog/${user.id}/about`}
+           href={`/blog/${user.id}/about`}
           >
-          <Button
-                    borderRadius="1.75rem"
-                    className="dark:bg-slate-900  text-white border-slate-800 w-full text-xl "
-                >
-                    About &rarr;
-                </Button>
+          <button className="px-[2.9rem] py-4 bg-blue-600 hover:bg-blue-700 transition duration-200 rounded-3xl text-white shadow-[0px_2px_0px_0px_#FFFFFF40_inset]">
+            About
+          </button>
           </Link>
+         
         </div>
       </Vortex>
     </div>
