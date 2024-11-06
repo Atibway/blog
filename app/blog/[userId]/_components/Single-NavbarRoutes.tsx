@@ -152,14 +152,14 @@ const onclick = ()=>{
       <SheetDescription>Navigate through the blog</SheetDescription>
     </SheetHeader>
     <nav className="flex mt-2 flex-col gap-4 w-full ">
-      <Link className="text-sm font-medium hover:underline underline-offset-4" href="/">
+      <Link className="text-sm font-medium hover:underline underline-offset-4" href={`/blog/${userId}`}>
       <Button
       className="w-full"
       >
         Home
       </Button>
       </Link>
-      <Link className=" text-sm font-medium hover:underline underline-offset-4" href="/about">
+      <Link className=" text-sm font-medium hover:underline underline-offset-4" href={`/blog/${userId}/about`}>
       <Button className="w-full">
 
         About
@@ -176,7 +176,7 @@ Users
   </Link>
   )}
       </div>
-      <Link className="text-sm font-medium hover:underline underline-offset-4" href="/blogs">
+      <Link className="text-sm font-medium hover:underline underline-offset-4" href={`/blog/${userId}/posts`}>
       <Button className="w-full">
         Blogs
       </Button>
