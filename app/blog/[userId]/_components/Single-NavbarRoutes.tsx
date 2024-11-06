@@ -1,13 +1,12 @@
 "use client"
 
-import {  useRouter } from "next/navigation"
+import {  usePathname, useRouter } from "next/navigation"
 
-import { ModeToggle } from "./modeToggler"
-import { Button } from "./ui/button"
-import {  LogOutIcon } from "lucide-react"
+
+import { LogOut as Out, LogOutIcon } from "lucide-react"
 import Link from "next/link"
 import { useCurrentRole } from "@/hooks/use-current-role"
-import { Avatar, AvatarImage } from "./ui/avatar"
+
 import { useCurrentUser } from "@/hooks/use-current-user"
 import { HopIcon, Menu } from "lucide-react"
 
@@ -21,13 +20,20 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { signOut } from "next-auth/react"
+import { Avatar, AvatarImage } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button"
+import { ModeToggle } from "@/components/modeToggler"
 
 
 
-export const NavbarRoutes = () => {
- 
+export const SingleNavbarRoutes = ({
+  userId
+}:{userId: string}) => {
+  const pathname = usePathname();
+
 const userRole = useCurrentRole()
-  
+  const isTeacherPage = pathname?.startsWith("/teacher");
+  const isPlayerPage = pathname?.includes("/chapter")
 const user = useCurrentUser()
 const router = useRouter()
 
@@ -48,7 +54,7 @@ const onclick = ()=>{
 <nav className="ml-auto hidden lg:flex  gap-4 sm:gap-6">
   <div className="flex space-x-4 mt-2">
 
-  <Link className="text-sm font-medium hover:underline underline-offset-4 mt-[1px]" href="/">
+  <Link className="text-sm font-medium hover:underline underline-offset-4 mt-[1px]" href={`/blog/${userId}`}>
     Home
   </Link>
   {userRole === "ADMIN" && user?.email ==="ainebyoonaatiidu@gmail.com" && (
@@ -56,12 +62,37 @@ const onclick = ()=>{
     Users
   </Link>
   )}
-  <Link className="text-sm font-medium hover:underline underline-offset-4 mt-[1px]" href="/about">
+  <Link className="text-sm font-medium hover:underline underline-offset-4 mt-[1px]" href={`/blog/${userId}/about`}>
     About
   </Link>
+  {userRole === "ADMIN" && (
+        <>
+        <div>
+          {isTeacherPage || isPlayerPage? (
+         <Link
+         className="text-sm mt-1 flex font-medium hover:underline underline-offset-4"
+         href={`/blog/${userId}`}
+         >
+       
+          <Out className="h-4 w-4 mr-2"/>
+          Exit
   
-  <Link className="text-sm font-medium hover:underline underline-offset-4 mt-1" href="/blogs">
-    Blogs
+         </Link>
+      ): (
+        <Link
+        className="text-sm font-medium hover:underline underline-offset-4"
+        href={"/teacher/courses"}
+        >
+
+  Create Blog
+
+        </Link>
+      )}
+        </div>
+        </>
+      )}
+  <Link className="text-sm font-medium hover:underline underline-offset-4 mt-1" href={`/blog/${userId}/posts`}>
+    Posts
   </Link>
   </div>
   {user?.image && (
@@ -77,7 +108,7 @@ const onclick = ()=>{
 <div>
           {user? (
            
-       <Button 
+       <Button
        onClick={onclick}
        variant={"ghost"}>
               <span
@@ -151,6 +182,34 @@ Users
       </Button>
       </Link>
     
+      {userRole === "ADMIN" && (
+        <div>
+          {isTeacherPage || isPlayerPage? (
+         <Link
+         className="text-sm mt-1 flex font-medium hover:underline underline-offset-4"
+         href={"/"}
+         >
+       <Button className="w-full">
+
+          <Out className="h-4 w-4 mr-2"/>
+          Exit
+       </Button>
+  
+         </Link>
+      ): (
+        <Link
+        className="text-sm font-medium hover:underline underline-offset-4"
+        href={"/teacher/courses"}
+        >
+<Button className="w-full">
+
+  Create Blog
+</Button>
+
+        </Link>
+      )}
+        </div>
+      )}
      
      
       <div>
